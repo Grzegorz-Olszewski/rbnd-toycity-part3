@@ -8,29 +8,47 @@ class Transaction
 		@id = @@id
 		add_to_transactions
 	end
+	def self.return_item (id_of_transaction)
+		transaction = Transaction.find_transaction_by_id(id_of_transaction)
+		puts "#{transaction.customer.name} returned #{transaction.product.title}"
+		Transaction.find_transaction_by_id(id_of_transaction).product.stock -=1
+	end
 	def self.all  
 		@@transactions
 	end
-	def self.find(id)
+	def self.find_transaction_by_id(id)
 		@@transactions.each do |transaction|
 			if transaction.id == id
 				return transaction
 			end
 		end
-		raise NoSuchTransactionError, "There is no such a transaction"
+		raise NoTransactionError, "There is no such a transaction"
 	end
+	def self.find_transaction_by_customer_name(customer_name)
+		@@transactions.each do |transaction|
+			if transaction.customer.name == customer_name
+				return transaction
+			end
+		end
+		raise NoTransactionError, "There is no such a transaction"
+	end
+	def self.find_transaction_by_product_title(title)
+		@@transactions.each do |transaction|
+			if transaction.product.title == title
+				return transaction
+			end
+		end
+		raise NoTransactionError, "There is no such a transaction"
+	end	
+	#def self.find_transaction(options={})
+
 	def add_to_transactions
 		if @product.stock > 0
 			@@transactions << self
 			@@id += 1
 			@product.stock = @product.stock - 1
 		else
-			raise OutOfStockError, "#{@product.title} is out of stock"
+			raise OutOfStockError, "'#{@product.title}' is out of stock"
 		end
 	end
-	
-
-
-	#def check_if_that_customer_exist
-	#	@@customers.each do |customer|	
 end	

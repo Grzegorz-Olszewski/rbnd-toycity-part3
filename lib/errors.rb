@@ -1,13 +1,15 @@
 class DuplicateProductError < StandardError
 end
-class NoSuchTitleError < StandardError
+class NoTitleError < StandardError
 end
 class DuplicateCustomerError < StandardError
 end
-class NoSuchNameError < StandardError
+class NoNameError < StandardError
 end
-class NoSuchTransactionError < StandardError
+class NoTransactionError < StandardError
 end
 class OutOfStockError < StandardError
 end
+
+
 

@@ -1,8 +1,9 @@
+
 class Customer
 	attr_reader :name
 	@@customers = []
-	def initialize (options={})
-		@name = options[:name]
+	def initialize (name)
+		@name = name
 		add_to_customers
 	end
 
@@ -13,7 +14,7 @@ class Customer
 				return customer
 			end
 		end
-		raise NoSuchNameError, "Customer with such name doesn't exist."
+		raise NoNameError, "Customer with such name doesn't exist."
 	end
 
 	def purchase(toy)
@@ -27,7 +28,7 @@ class Customer
 	def add_to_customers 
 		@@customers.each do |customer|
 			if customer.name == @name
-				raise DuplicateCustomerError, "There is already customer with the same name" 
+				raise DuplicateCustomerError, "'#{self.name}' already exists" 
 			end
 		end
 		@@customers << self

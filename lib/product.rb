@@ -21,7 +21,7 @@ class Product
 				return toy
 			end
 		end
-		raise NoSuchTitleError, "There is no toy with such title"
+		raise NoTitleError, "There is no toy with such title"
 	end
 	def in_stock?
 		if @stock == 0
@@ -45,7 +45,7 @@ class Product
 	def add_to_products
 		@@products.each do |toy| 
 			if toy.title == @title
-				raise DuplicateProductError, "That product already exists"
+				raise DuplicateProductError, "'#{self.title}' already exists"
 			end
 		end
 		@@products << self
