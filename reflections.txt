@@ -1,0 +1,7 @@
+I added two new features. First one is a way to return item. It's method return_item within transaction class. It uses find_transaction_by_id method to find transaction with given id, print who returned and what, and decrease stock of this product by one. It's pretty important to be able to return item :)
+
+The second feature are new ways to find transaction. I added 2 methods, find_by_product_title, and find_by_customer_name so one can find transaction without knowing id of it. I think it's useful to have few options.
+
+First part of project, took me about 2-3 hours. The second one, where I had to add new features, around 3-4 hours. Most of that time was consumed by trying to make work method return_item within customer class. After a while I figured out that it's pointless and in transaction class it might be even better.
+
+While I was writing new features I realised how little I know. My ideas are far greater than my skills, and sometimes I can't google things because I don't know what I should be looking for. I have a problem with motivation to read code. When I see some posts on stack overflow with complicated code I even don't read it. I'm not sure should I try to get through it, or learn gradually and skip those overwhelming discussions.

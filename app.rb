@@ -71,5 +71,5 @@ puts transaction3.customer.name
 
 transaction4 = Transaction.find_transaction_by_product_title("Nano Block Empire State Building")
 puts transaction4.customer.name
-walter.purchase(firehouse)
+#walter.purchase(firehouse)
 #Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.

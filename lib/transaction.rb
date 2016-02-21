@@ -40,13 +40,12 @@ class Transaction
 		end
 		raise NoTransactionError, "There is no such a transaction"
 	end	
-	#def self.find_transaction(options={})
 
 	def add_to_transactions
 		if @product.stock > 0
 			@@transactions << self
 			@@id += 1
-			@product.stock = @product.stock - 1
+			@product.stock -=1
 		else
 			raise OutOfStockError, "'#{@product.title}' is out of stock"
 		end
